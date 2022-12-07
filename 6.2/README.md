@@ -15,7 +15,6 @@
 Ответ:
 
 ```
-
 root@virt:~# docker run -itd --rm  --name netology_postgresql -p 5432:5432 -e POSTGRES_USER=postgres -e POSTGRES_PASSWORD=postgres -e POSTGRES_DB=postgres -v vol1:/var/lib/postgresql/data -v vol2:/var/lib/postgresql -d postgres:12
 Unable to find image 'postgres:12' locally
 12: Pulling from library/postgres
@@ -45,9 +44,6 @@ psql (12.12 (Ubuntu 12.12-0ubuntu0.20.04.1), server 12.13 (Debian 12.13-1.pgdg11
 Type "help" for help.
 
 postgres=#
-
-
-
 ```
 
 ## Задача 2
@@ -126,10 +122,6 @@ test_db-# \du
  test-admin-user  | Superuser, Cannot login                                    | {}
  test-simple-user | Cannot login                                               | {}
 
-
-
-
-
 ```
 
 ## Задача 3
@@ -166,7 +158,6 @@ test_db-# \du
 Ответ:
 
 ```
-
 insert into orders VALUES (1, 'Шоколад', 10), (2, 'Принтер', 3000), (3, 'Книга', 500), (4, 'Монитор', 7000), (5, 'Гитара', 4000);
 insert into clients VALUES (1, 'Иванов Иван Иванович', 'USA'), (2, 'Петров Петр Петрович', 'Canada'), (3, 'Иоганн Себастьян Бах', 'Japan'), (4, 'Ронни Джеймс Дио', 'Russia'), (5, 'Ritchie Blackmore', 'Russia');
 select count (*) from orders;
@@ -183,8 +174,6 @@ test_db=# select count (*) from clients;
      5
 (1 row)
 test_db=#
-
-
 ```
 
 ## Задача 4
@@ -222,7 +211,6 @@ test_db=# select * from clients where booking is not null;
 
 test_db=#
 
-
 ```
 
 ## Задача 5
@@ -234,7 +222,6 @@ test_db=#
 
 Ответ:
 
-
 ```
 test_db=# explain select * from clients where booking is not null;
                         QUERY PLAN
@@ -243,8 +230,9 @@ test_db=# explain select * from clients where booking is not null;
    Filter: (booking IS NOT NULL)
 (2 rows)
 
-Запись показывает стоимомть нагрузки на исполнение
-
+cost - Приблизительная стоимость запуска. Это время, которое проходит, прежде чем начнётся этап вывода данных. 
+Единицей стоимости считается операция чтения страницы с диска. Здесь она составила от 0 до 18.10
+rows - количество записей
 ```
 
 ## Задача 6
@@ -262,7 +250,6 @@ test_db=# explain select * from clients where booking is not null;
 Ответ:
 
 ```
-
 root@virt:~# docker exec -t netology_postgresql pg_dump -U postgres test_db -f /var/lib/postgresql/data/dump_test.sql
 
 root@virt:~# docker stop netology_postgresql
@@ -291,7 +278,6 @@ SET
 SET
 SET
 SET
-
 ```
 
 ---
