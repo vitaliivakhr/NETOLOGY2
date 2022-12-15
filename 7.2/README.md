@@ -74,6 +74,9 @@ compute-default-zone: ru-central1-a
 
 Ответ:
 ```
+- Для создания образа ami можно использовать инструмент AWS CloudFormation
+- https://github.com/vitaliivakhr/NETOLOGY2/tree/main/7.2/terraform
+
 [vitalii@fedora terraform]$ terraform init
 
 Initializing the backend...
